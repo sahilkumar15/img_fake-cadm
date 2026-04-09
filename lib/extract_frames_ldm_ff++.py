@@ -1,4 +1,4 @@
-# code_2/CADDM/lib/extract_frames_ldm_ff++.py
+# lib/extract_frames_ldm_ff++.py
 
 #!/usr/bin/env python3
 from glob import glob
@@ -12,7 +12,7 @@ from imutils import face_utils
 
 
 VIDEO_PATH = "/scratch/sahil/projects/img_deepfake/datasets/ffpp"
-SAVE_IMGS_PATH = "./test_images"
+SAVE_IMGS_PATH = "./test_images-2/ffpp/test_images"
 PREDICTOR_PATH = "./lib/shape_predictor_81_face_landmarks.dat"
 DATASETS = {"Original", "FaceSwap", "FaceShifter", "Face2Face", "Deepfakes", "NeuralTextures"}
 COMPRESSION = {"raw"}

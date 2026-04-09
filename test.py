@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# test.py
 import argparse
 from sklearn.metrics import roc_auc_score, roc_curve
 
@@ -106,6 +107,14 @@ def test():
 
 if __name__ == "__main__":
     test()
+    
+    
+# Fix all at once
+# python lib/fix_ldm_paths.py --ldm ./test_images-2/test_images/ldm.json          --img_path ./test_images-2/test_images
+# python lib/fix_ldm_paths.py --ldm ./test_images-2/test_images_celebdf/ldm.json   --img_path ./test_images-2/test_images_celebdf
+# python lib/fix_ldm_paths.py --ldm ./test_images-2/test_images_dfd/ldm.json       --img_path ./test_images-2/test_images_dfd
+# python lib/fix_ldm_paths.py --ldm ./test_images-2/test_images_diffswap/ldm.json  --img_path ./test_images-2/test_images_diffswap
+# python lib/fix_ldm_paths.py --ldm ./test_images-2/test_images_wilddeepfake/ldm.json --img_path ./test_images-2/test_images_wilddeepfake
     
 # CUDA_VISIBLE_DEVICES=1 python test.py --cfg ./configs/caddm_test.cfg
 # CUDA_VISIBLE_DEVICES=1 python test.py --cfg ./configs/caddm_test_celebdf.cfg
