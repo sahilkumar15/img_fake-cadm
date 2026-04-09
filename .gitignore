@@ -38,6 +38,7 @@ checkpoints/*
 test_images-2/
 checkpoints/
 checkpoints copy/
+ dataset_images-3/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
