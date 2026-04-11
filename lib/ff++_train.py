@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# lib/extract_frames_ldm_ff++_train.py
+# lib/ff++_train.py
 #
 # THE ACTUAL ROOT CAUSE (confirmed by diagnose.py output):
 #   pix_fmt="gbrp" — ALL raw FF++ videos use GBR planar pixel format.
@@ -17,7 +17,7 @@
 #
 # USAGE:
 #   cd /scratch/sahil/projects/img_deepfake/code_2/img_fake-cadm
-#   python lib/extract_frames_ldm_ff++_train.py
+#   python lib/lib/ff++_train.py
 #
 # REQUIRES: ffmpeg on PATH
 #   Check:  ffmpeg -version
@@ -354,5 +354,5 @@ if __name__ == "__main__":
 #   python lib/extract_frames_ldm_ff++_train.py
 #
 #   # Train:
-#   CUDA_VISIBLE_DEVICES=0 python3 train.py --cfg ./configs/caddm_train_ffpp.cfg
+#   CUDA_VISIBLE_DEVICES=2 python train.py --cfg ./configs/train_ffpp.cfg
 # ─────────────────────────────────────────────────────────────────────────────

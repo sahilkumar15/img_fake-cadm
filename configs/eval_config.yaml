@@ -1,0 +1,67 @@
+# configs/eval_config.yaml
+# ─────────────────────────────────────────────────────────────────────────────
+# Master evaluation config — edit model and datasets here, run eval_all.py
+#
+# USAGE:
+#   python eval_all.py --cfg ./configs/eval_config.yaml
+#   # or via shell:
+#   bash run_eval.sh
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Experiment naming ─────────────────────────────────────────────────────────
+experiment:
+  name: "ffpp_resnet34"          # experiment folder name  → experiments/ffpp_resnet34/
+  eval_name: "eval_1"     # sub-folder name         → experiments/ffpp_resnet34/eval_1/
+
+# ── Model (plug-and-play) ──────────────────────────────────────────────────────
+model:
+  backbone: "resnet34"                                   # resnet34 | efficientnet-b3 | efficientnet-b4
+  ckpt:     "./checkpoints/ffpp_resnet34/epoch_82.pkl"  # path to checkpoint
+
+# ── Shared image processing params (same for all datasets) ────────────────────
+crop_face:
+  face_width: 80
+  output_size: 224
+  scale: 0.9
+
+adm_det:
+  min_dim: 224
+  aspect_ratios: [[1], [1], [1], [1]]
+  feature_maps: [7, 5, 3, 1]
+  steps: [32, 45, 75, 224]
+  min_sizes: [40, 80, 120, 224]
+  max_sizes: [80, 120, 160, 224]
+  clip: True
+  variance: [0.1]
+  name: deepfake
+
+sliding_win:
+  prior_bbox: [[40, 80], [80, 120], [120, 160], [224, 224]]
+
+# ── Datasets to evaluate (add / remove / comment out freely) ──────────────────
+# Each entry needs: name, img_path, ld_path, batch_size
+datasets:
+  - name:       "FF++"
+    img_path:   "./test_images-2/test_images"
+    ld_path:    "./test_images-2/test_images/ldm.json"
+    batch_size: 32
+
+  - name:       "Celeb-DF"
+    img_path:   "./test_images-2/test_images_celebdf"
+    ld_path:    "./test_images-2/test_images_celebdf/ldm.json"
+    batch_size: 32
+
+  - name:       "DFD"
+    img_path:   "./test_images-2/test_images_dfd"
+    ld_path:    "./test_images-2/test_images_dfd/ldm.json"
+    batch_size: 32
+
+  - name:       "DiffSwap"
+    img_path:   "./test_images-2/test_images_diffswap"
+    ld_path:    "./test_images-2/test_images_diffswap/ldm.json"
+    batch_size: 32
+
+  - name:       "WildDeepfake"
+    img_path:   "./test_images-2/test_images_wilddeepfake"
+    ld_path:    "./test_images-2/test_images_wilddeepfake/ldm.json"
+    batch_size: 32

@@ -122,3 +122,7 @@ if __name__ == "__main__":
 # CUDA_VISIBLE_DEVICES=1 python test.py --cfg ./configs/caddm_test_diffswap.cfg
 # CUDA_VISIBLE_DEVICES=1 python test.py --cfg ./configs/caddm_test_wilddeepfake.cfg
 
+
+
+# CUDA_VISIBLE_DEVICES=1 python test.py --cfg ./configs/test_ffpp.cfg
+
